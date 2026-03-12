@@ -21,7 +21,6 @@ jobs:
       - name: Init attestation (keyless)
         run: |
           chainloop att init \
-            --org matiasorg \
             --project matiasproject \
             --workflow matiasworkflow
 
