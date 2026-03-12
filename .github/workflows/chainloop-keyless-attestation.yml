@@ -24,7 +24,7 @@ jobs:
           chainloop att init \
             --org matiasorg \
             --project matiasproject \
-            --workflow matiasproject
+            --workflow matiasworkflow
 
       - name: Push attestation
         run: chainloop attestation push
