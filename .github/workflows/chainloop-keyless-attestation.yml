@@ -13,7 +13,7 @@ jobs:
       contents: read
     env:
       CHAINLOOP_PLATFORM_API: https://cl-backend.ngrok.app
-      CHAINLOOP_CONTROL_PLANE_API: cl-control-plane.ngrok.app
+      CHAINLOOP_CONTROL_PLANE_API: cl-control-plane.ngrok.app:443
     steps:
       - name: Checkout
         uses: actions/checkout@v4
