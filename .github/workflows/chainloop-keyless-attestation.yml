@@ -11,6 +11,8 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    env:
+      CHAINLOOP_PLATFORM_API: https://4c18-181-120-18-133.ngrok-free.app
 
     steps:
       - name: Checkout
@@ -20,7 +22,7 @@ jobs:
         run: curl -sfL https://dl.chainloop.dev/cli/install.sh | bash -s -- -ee
       - name: Run Release Gate Attestation
         run: |
-          chainloop --platform https://36af-181-120-18-133.ngrok-free.app attestation init --workflow release-gate --project myproject --version v1.0.0
+          chainloop attestation init --workflow release-gate --project myproject --version v1.0.0
 
           chainloop attestation push
       - name: Init attestation (keyless)
