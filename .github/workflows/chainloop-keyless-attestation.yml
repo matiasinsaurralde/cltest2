@@ -20,7 +20,7 @@ jobs:
         run: curl -sfL https://dl.chainloop.dev/cli/install.sh | bash -s -- -ee
       - name: Run Release Gate Attestation
         run: |
-          chainloop attestation init --workflow release-gate --project matiasproject --version v1.0.0
+          chainloop --platform https://36af-181-120-18-133.ngrok-free.app attestation init --workflow release-gate --project myproject --version v1.0.0
 
           chainloop attestation push
       - name: Init attestation (keyless)
