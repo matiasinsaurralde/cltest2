@@ -13,7 +13,7 @@ jobs:
       contents: read
     env:
       CHAINLOOP_PLATFORM_API: https://cl-backend.ngrok.app
-      CHAINLOOP_CONTROL_PLANE_API: https://cl-controlplane.ngrok.app
+      CHAINLOOP_CONTROL_PLANE_API: 0.tcp.sa.ngrok.io:18858
     steps:
       - name: Checkout
         uses: actions/checkout@v4
