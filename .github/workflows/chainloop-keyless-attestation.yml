@@ -20,36 +20,10 @@ jobs:
 
       - name: Install Chainloop CLI
         run: curl -sfL https://dl.chainloop.dev/cli/install.sh | bash -s -- -ee
-      - name: Run Release Gate Attestation
-        run: |
-          chainloop attestation init --workflow release-gate --project myproject --version v1.0.0 --debug
-
-          chainloop attestation push
       - name: Init attestation (keyless)
         run: |
           chainloop att init \
             --project matiasproject \
             --workflow matiasworkflow
-
-      - name: Generate a GitHub App token
-        id: generate-token
-        uses: actions/create-github-app-token@v2
-        with:
-          app-id: ${{ vars.CHAINLOOP_GATHERER_APP_ID }}
-          private-key: ${{ secrets.GATHERER_APP_PRIVATE_KEY }}
-
-      - name: Gather runner context data
-        run: |
-          chainloop gather-runner-context \
-            --runner-token ${{ steps.generate-token.outputs.token }} \
-            --branches=main
-
-      - name: Add runner context material to attestation
-        run: |
-          chainloop attestation add \
-            --name runner-context \
-            --value ./runner-context.json \
-            --kind CHAINLOOP_RUNNER_CONTEXT
-
       - name: Push attestation
         run: chainloop attestation push
