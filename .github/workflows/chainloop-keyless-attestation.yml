@@ -25,5 +25,9 @@ jobs:
           chainloop att init \
             --project matiasproject \
             --workflow matiasworkflow
+
+      - name: Dummy wait
+        run: sleep 420
+
       - name: Push attestation
         run: chainloop attestation push
